@@ -11,11 +11,11 @@ Este projeto implementa um **benchmark completo** para comparar o desempenho de 
 
 **Desenvolvido como trabalho acadêmico para:** *Aceleração em Ciência de Dados usando Computação Paralela*
 
-### 🏆 Resultados Principais
-- **Break-even Point**: GPU vence a partir de matrizes **2000x2000**
-- **Máximo Speedup GPU**: **9.5x** mais rápida que CPU (matriz 3000x3000)
-- **CPU Melhor Configuração**: 8 threads para matrizes pequenas/médias
-- **GPU Testada**: NVIDIA RTX 3070 Ti com CUDA 12.x
+### 🏆 Características do Estudo
+- **Análise Completa**: CPU scaling (1-20 threads) vs GPU acceleration
+- **Break-even Analysis**: Identifica quando GPU supera CPU
+- **Hardware Real**: Testado com NVIDIA RTX 3070 Ti + CUDA 12.x
+- **Múltiplos Tamanhos**: Matrizes de 1000×1000 até 4000×4000
 
 ## 🎯 Objetivos
 
@@ -140,35 +140,40 @@ Eficiência = Speedup / Número_de_Threads
 - **Escalabilidade** (análise de crescimento)
 - **Comparação CPU vs GPU** (total e apenas computação)
 
-## 📊 Resultados Obtidos (RTX 3070 Ti)
+## 📊 Resultados e Análises
 
-### 🔍 Análise por Tamanho de Matriz
+### 📈 Visualizações dos Benchmarks
 
-| Tamanho | CPU (8 threads) | GPU (CUDA) | **Speedup GPU** | Vencedor |
-|---------|-----------------|------------|-----------------|----------|
-| 1000×1000 | 0.0081s | 0.0544s | **0.15x** | 💻 **CPU** |
-| 2000×2000 | 0.0405s | 0.0066s | **5.46x** | 🚀 **GPU** |
-| 3000×3000 | 0.1716s | 0.0181s | **9.49x** | 🚀 **GPU** |
-| 4000×4000 | 0.2941s | 0.0335s | **8.35x** | 🚀 **GPU** |
+Os resultados completos são apresentados através de gráficos interativos que mostram:
 
-### 📈 Insights Principais
+- **Comparação de Performance**: Tempo de execução por método
+- **Análise de Break-even**: Ponto onde GPU supera CPU
+- **Escalabilidade**: Performance através de diferentes tamanhos de matriz
+- **Overhead Analysis**: Custos de transferência vs computação
 
-#### CPU Performance
-- **Melhor configuração**: 8 threads para a maioria dos casos
-- **Paralelização manual**: Muito lenta devido ao overhead de multiprocessing
-- **NumPy/BLAS**: Extremamente otimizado para operações de matriz
+![Performance Comparison](complete_benchmark_results.png)
+*Comparação de performance entre diferentes configurações*
 
-#### GPU Performance  
-- **Break-even**: 2000×2000 (15.3 MB por matriz)
-- **Sweet spot**: 3000×3000+ para máximo speedup
-- **Overhead crítico**: Transferência de dados para matrizes pequenas
-- **Compute capability**: Consistente ~6-9x speedup para matrizes grandes
+![Scalability Analysis](scalability_analysis.png)  
+*Análise de escalabilidade através de diferentes tamanhos de matriz*
+
+### 🔍 Insights Gerais
+
+#### Características CPU
+- **Paralelismo eficiente**: NumPy/BLAS altamente otimizado
+- **Sweet spot**: Configurações de 4-8 threads
+- **Limitações**: Overhead significativo em paralelização manual
+
+#### Características GPU
+- **Escalabilidade**: Vantagem cresce com tamanho do problema
+- **Overhead crítico**: Transferência de dados impacta matrizes pequenas
+- **Break-even**: Existe um ponto de transição onde GPU supera CPU
 
 #### Descobertas Importantes
-1. **CPU surpreendente**: NumPy/BLAS compete muito bem até ~2000×2000
-2. **Overhead GPU**: 60-70% do tempo gasto em transferências para matrizes pequenas  
-3. **Escalabilidade**: GPU mantém vantagem crescente com tamanho da matriz
-4. **Multiprocessing**: Manual parallelization tem overhead proibitivo vs bibliotecas otimizadas
+1. **Break-even analysis**: GPU não é sempre superior - depende do tamanho do problema
+2. **Biblioteca optimization**: NumPy/BLAS compete surpreendentemente bem com GPU
+3. **Transfer overhead**: Fator crítico para determinar viabilidade da aceleração GPU
+4. **Scaling behavior**: GPU demonstra melhor escalabilidade para problemas grandes
 
 ## 🔧 Configurações Personalizáveis
 
@@ -271,13 +276,7 @@ Este benchmark é relevante para:
 - **Financial Modeling**: Análise de risco e pricing
 - **Engineering**: Análise de elementos finitos
 
-## 📈 Visualizações Incluídas
 
-![Performance Comparison](complete_benchmark_results.png)
-*Comparação de performance entre diferentes configurações*
-
-![Scalability Analysis](scalability_analysis.png)  
-*Análise de escalabilidade através de diferentes tamanhos de matriz*
 
 ---
 
