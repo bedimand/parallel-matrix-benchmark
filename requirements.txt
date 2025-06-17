@@ -1,0 +1,16 @@
+numpy>=1.21.0
+matplotlib>=3.5.0
+pandas>=1.3.0
+psutil>=5.8.0
+joblib>=1.1.0
+seaborn>=0.11.0
+
+# Para GPU (opcional - instalar conforme disponibilidade CUDA)
+# cupy-cuda12x  # Para CUDA 12.x
+# cupy-cuda11x  # Para CUDA 11.x
+# numba>=0.56.0
+
+# Para instalar CuPy automaticamente:
+# pip install cupy-cuda12x  # Se você tem CUDA 12.x
+# pip install cupy-cuda11x  # Se você tem CUDA 11.x
+# pip install cupy-cpu     # Se não tem GPU CUDA (para testes) 

@@ -1,0 +1,2 @@
+method,time,speedup,compute_only_time
+CPU (NumPy),0.05389690399169922,1.0,0.05389690399169922
