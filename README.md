@@ -219,18 +219,14 @@ Este projeto foi desenvolvido com assistência significativa de IA (Claude/ChatG
 ### Assistência de Código
 - **Estruturação das classes** e organização modular
 - **Implementação de benchmarks** e medição de tempo
-- **Paralelização manual** com multiprocessing
 - **Integração CUDA** com CuPy e Numba
 
 ### Otimização e Boas Práticas
-- **Controle de threads** via variáveis de ambiente
 - **Tratamento de erros** e verificação de disponibilidade GPU
 - **Visualizações** com matplotlib e análise estatística
 - **Documentação** e comentários explicativos
 
 ### Debugging e Validação
-- **Verificação de consistência** entre resultados CPU e GPU
-- **Tratamento de dependências** opcionais
 - **Instalação automática** de bibliotecas quando possível
 
 ## 📋 Checklist de Execução
@@ -275,24 +271,6 @@ Este benchmark é relevante para:
 - **Computer Graphics**: Processamento de imagens/vídeo
 - **Financial Modeling**: Análise de risco e pricing
 - **Engineering**: Análise de elementos finitos
-
-
-
----
-
-## 📄 Citação
-
-Se este trabalho for útil para sua pesquisa, considere citar:
-
-```bibtex
-@misc{parallel_matrix_benchmark_2024,
-  title={Parallel Matrix Benchmark: CPU vs GPU Performance Analysis},
-  author={Academic Project},
-  year={2024},
-  url={https://github.com/bedimand/parallel-matrix-benchmark},
-  note={RTX 3070 Ti CUDA acceleration study}
-}
-```
 
 ---
 
